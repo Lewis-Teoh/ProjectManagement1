@@ -51,3 +51,16 @@ angular.module('webApp.welcome', ['ngRoute', 'firebase'])
 		CommonProp.logoutUser();
 	}
 }])
+
+.controller('TableCtrl' , ['$scope', '$firebaseStorage', '$firebaseObject',function ($scope, $firebaseStorage, $firebaseObject){
+	let fileRef = firebase.database().ref('Files');
+    $scope.files = $firebaseObject(fileRef);
+    $scope.delete = (key, name) => {
+        let storageRef = firebase.storage().ref(name);
+        let storage = $firebaseStorage(storageRef);
+        storage.$delete().then(() => {
+            delete $scope.files[key];
+            $scope.files.$save();
+        })
+    }
+}])

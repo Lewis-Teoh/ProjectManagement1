@@ -6,7 +6,9 @@ angular.module('webApp', [
   'webApp.home',
   'webApp.register',
   'webApp.welcome',
+  'webApp.uploadFile',
   'webApp.addPost'
+  
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
 

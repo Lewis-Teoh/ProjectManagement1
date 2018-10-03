@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Song Upload</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="uploadFile/upload.css" />
+</head>
+
+<body ng-controller="UploadCtrl">
+    <div class="container">
+        <div>
+         <form name="uploadForm" ng-submit="upload()">
+           <h3>File Uploader</h3>
+           <div class="input-group">
+             <input onchange="angular.element(this).scope().onChange(this.files)" class="form-control" type="file" accept="audio/*"/>
+             <div class="input-group-btn">
+               <button class="btn btn-default" type="submit">Upload</button>
+             </div>
+           </div>
+         </form>
+       </div>
+     </div>
+     
+     <div class="container" ng-show="success">
+            <div class="row">
+                <div class="alert alert-success">
+                    <strong>Success!</strong> The file has beed Uploaded.
+                </div>
+            </div>
+    </div>
+
+    <progress id="progressBar" value="0" max="100" style="width:300px;"></progress>
+
+    
+</body>
+</html>
